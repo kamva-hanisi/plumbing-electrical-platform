@@ -1,0 +1,24 @@
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Private uploaded files
+storage/private/*
+!storage/private/.gitkeep
+
+# Logs
+storage/logs/*
+!storage/logs/.gitkeep
+
+# Dependencies
+/vendor/
+
+# Operating system
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Editor settings
+.vscode/
+.idea/

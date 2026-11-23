@@ -1,0 +1,8 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteRule ^(app|database|docs|routes|storage)(/|$) - [F,L,NC]
+    RewriteRule (^|/)\. - [F,L]
+</IfModule>
