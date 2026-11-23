@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 date_default_timezone_set('Africa/Johannesburg');
 
-$pageTitle = 'Plumbing & Electrical Services Platform';
-
+$pageTitle = 'Plumbing & Electrical Services';
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +16,7 @@ $pageTitle = 'Plumbing & Electrical Services Platform';
 
     <title><?= htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8') ?></title>
 
-    <meta name="description" content="Plumbing and electrical services platform serving Gauteng, South Africa.">
+    <meta name="description" content="Professional plumbing and electrical services across Gauteng.">
 
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -25,64 +24,137 @@ $pageTitle = 'Plumbing & Electrical Services Platform';
 <body>
 
     <header class="header">
-        <div class="container">
+        <div class="container navbar">
             <a href="index.php" class="logo">
-                Plumbing & Electrical
+                <span class="logo-mark">P</span>
+                <span>PLUMB<span class="accent">&</span>ELEC</span>
             </a>
 
-            <span class="environment-label">Development Environment</span>
+            <nav class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <a href="#contact" class="nav-button">Get a Quote</a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                ☰
+            </button>
         </div>
     </header>
 
-    <main class="main">
-        <section class="hero container">
+    <main>
 
-            <span class="eyebrow">PROJECT INITIALIZATION</span>
+        <section class="hero" id="home">
+            <div class="container hero-content">
 
-            <h1>
-                Our platform starts here.
-            </h1>
+                <span class="eyebrow">PROFESSIONAL HOME SERVICES</span>
 
-            <p>
-                A digital platform connecting customers with
-                professional plumbing and electrical services
-                across Gauteng, South Africa.
-            </p>
+                <h1>
+                    Reliable solutions.<br>
+                    <span>Quality workmanship.</span>
+                </h1>
 
-            <div class="status-card">
-                <span class="status-indicator"></span>
+                <p>
+                    Professional plumbing and electrical services
+                    for homes and businesses across Gauteng.
+                </p>
 
-                <div>
-                    <strong>PHP is working!</strong>
-                    <small>
-                        Server time:
-                        <?= date('d M Y, H:i:s') ?>
-                    </small>
+                <div class="hero-actions">
+                    <a href="#services" class="button button-primary">
+                        Explore Services
+                    </a>
+
+                    <a href="#contact" class="button button-outline">
+                        Request a Quote
+                    </a>
+                </div>
+
+                <div class="hero-note">
+                    <span class="status-dot"></span>
+                    Serving customers across Gauteng, South Africa
+                </div>
+
+            </div>
+        </section>
+
+        <section class="services section" id="services">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">WHAT WE DO</span>
+                    <h2>Our Services</h2>
+                    <p>Practical solutions for your property.</p>
+                </div>
+
+                <div class="service-grid">
+
+                    <article class="service-card">
+                        <div class="service-icon">⌁</div>
+                        <h3>Plumbing Services</h3>
+                        <p>
+                            Plumbing installations, repairs,
+                            maintenance and leak solutions.
+                        </p>
+                        <a href="#contact">Explore plumbing <span>→</span></a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">ϟ</div>
+                        <h3>Electrical Services</h3>
+                        <p>
+                            Electrical installations, repairs,
+                            maintenance and fault finding.
+                        </p>
+                        <a href="#contact">Explore electrical <span>→</span></a>
+                    </article>
+
                 </div>
             </div>
-
-            <button id="testButton" class="primary-button">
-                Test JavaScript
-            </button>
-
-            <p id="testMessage" class="test-message">
-                JavaScript test has not been performed.
-            </p>
-
         </section>
+
+        <section class="about section" id="about">
+            <div class="container about-content">
+                <div>
+                    <span class="eyebrow">OUR APPROACH</span>
+                    <h2>Service made simple.</h2>
+                </div>
+
+                <p>
+                    Our platform makes it easier to request services,
+                    receive quotations and manage appointments.
+                    Clear communication from request to completion.
+                </p>
+            </div>
+        </section>
+
+        <section class="contact section" id="contact">
+            <div class="container contact-content">
+                <div>
+                    <span class="eyebrow">LET'S GET STARTED</span>
+                    <h2>Need a service?</h2>
+                    <p>Contact us to discuss your plumbing or electrical needs.</p>
+                </div>
+
+                <a href="mailto:info@example.com" class="button button-light">
+                    Contact Us
+                </a>
+            </div>
+        </section>
+
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <p>
-                &copy; <?= date('Y') ?> Plumbing & Electrical
-                Services Platform.
-            </p>
-            <p>Development Version 1.0</p>
+        <div class="container footer-content">
+            <p>© <?= date('Y') ?> Plumbing & Electrical Services Platform.</p>
+            <p>Gauteng, South Africa</p>
         </div>
     </footer>
 
     <script src="assets/js/app.js"></script>
 
 </body>
+
 </html>

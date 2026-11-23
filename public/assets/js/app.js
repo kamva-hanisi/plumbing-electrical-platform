@@ -1,19 +1,21 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const testButton = document.getElementById("testButton");
-  const testMessage = document.getElementById("testMessage");
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
 
-  if (!testButton || !testMessage) {
-    return;
-  }
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
 
-  testButton.addEventListener("click", () => {
-    testMessage.textContent =
-      "Success! Vanilla JavaScript is working correctly.";
+    const isOpen = navLinks.classList.contains("active");
 
-    testMessage.style.color = "#16a34a";
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  });
 
-    testButton.textContent = "JavaScript Working!";
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
+    });
   });
 });

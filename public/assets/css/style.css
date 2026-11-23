@@ -1,7 +1,13 @@
 
-/* =================================
-   GLOBAL STYLES
-================================= */
+:root {
+    --navy: #172b4d;
+    --blue: #2563eb;
+    --text: #273449;
+    --muted: #718096;
+    --light: #f7f9fc;
+    --white: #ffffff;
+    --border: #e8edf3;
+}
 
 * {
     margin: 0;
@@ -9,184 +15,337 @@
     box-sizing: border-box;
 }
 
-:root {
-    --primary-color: #163a5f;
-    --secondary-color: #2563eb;
-    --background-color: #f4f7fb;
-    --text-color: #1e293b;
-    --muted-color: #64748b;
-    --success-color: #16a34a;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: var(--background-color);
-    color: var(--text-color);
+    color: var(--text);
     line-height: 1.6;
+    background: var(--white);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .container {
-    width: min(1100px, 90%);
-    margin: 0 auto;
+    width: min(1120px, 90%);
+    margin: auto;
 }
 
-/* =================================
-   HEADER
-================================= */
+/* NAVIGATION */
 
 .header {
-    background: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 20px 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
 }
 
-.header .container {
+.navbar {
+    min-height: 78px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
 }
 
 .logo {
-    color: var(--primary-color);
-    font-size: 20px;
-    font-weight: 700;
-    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--navy);
 }
 
-.environment-label {
-    background: #e0ecff;
-    color: var(--secondary-color);
-    padding: 7px 12px;
-    border-radius: 20px;
-    font-size: 12px;
+.logo-mark {
+    background: var(--navy);
+    color: white;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+}
+
+.accent {
+    color: var(--blue);
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.nav-links a:hover {
+    color: var(--blue);
+}
+
+.nav-button,
+.button {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 6px;
+    font-size: 14px;
     font-weight: 600;
 }
 
-/* =================================
-   HERO SECTION
-================================= */
-
-.main {
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    padding: 70px 0;
+.nav-button,
+.button-primary {
+    background: var(--blue);
+    color: var(--white);
 }
 
+.menu-toggle {
+    display: none;
+    border: 0;
+    background: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* HERO */
+
 .hero {
-    max-width: 800px;
+    background: var(--light);
+    padding: 110px 0;
+}
+
+.hero-content {
+    max-width: 1120px;
 }
 
 .eyebrow {
-    color: var(--secondary-color);
-    font-size: 13px;
+    color: var(--blue);
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 2px;
 }
 
 .hero h1 {
-    font-size: clamp(36px, 6vw, 58px);
-    line-height: 1.15;
-    margin: 20px 0;
-    color: var(--primary-color);
+    font-size: clamp(38px, 6vw, 66px);
+    line-height: 1.12;
+    color: var(--navy);
+    margin: 22px 0;
+    letter-spacing: -2px;
 }
 
-.hero > p {
-    color: var(--muted-color);
-    font-size: 18px;
-    max-width: 650px;
+.hero h1 span {
+    color: var(--blue);
 }
 
-/* =================================
-   STATUS CARD
-================================= */
+.hero-content > p {
+    max-width: 560px;
+    color: var(--muted);
+    font-size: 17px;
+}
 
-.status-card {
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.button-outline {
+    border: 1px solid #cbd5e1;
+    color: var(--navy);
+    background: white;
+}
+
+.button:hover,
+.nav-button:hover {
+    opacity: 0.85;
+}
+
+.hero-note {
+    margin-top: 35px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #16a34a;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* SECTIONS */
+
+.section {
+    padding: 85px 0;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.section-heading h2,
+.about h2,
+.contact h2 {
+    color: var(--navy);
+    font-size: 36px;
+    margin: 10px 0;
+}
+
+.section-heading p,
+.about p,
+.contact p {
+    color: var(--muted);
+}
+
+/* SERVICE CARDS */
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.service-card {
+    padding: 35px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: 0.2s ease;
+}
+
+.service-card:hover {
+    border-color: #b9cced;
+    transform: translateY(-3px);
+}
+
+.service-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    background: #edf3ff;
+    color: var(--blue);
+    border-radius: 8px;
+    font-size: 28px;
+    margin-bottom: 22px;
+}
+
+.service-card h3 {
+    color: var(--navy);
+    margin-bottom: 10px;
+    font-size: 21px;
+}
+
+.service-card p {
+    color: var(--muted);
+    margin-bottom: 22px;
+}
+
+.service-card a {
+    color: var(--blue);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* ABOUT */
+
+.about {
+    background: var(--light);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-content p {
+    max-width: 480px;
+}
+
+/* CONTACT */
+
+.contact {
+    background: var(--navy);
+}
+
+.contact-content {
     display: flex;
     align-items: center;
-    gap: 14px;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 30px 0;
-    max-width: 400px;
+    justify-content: space-between;
+    gap: 25px;
 }
 
-.status-indicator {
-    width: 12px;
-    height: 12px;
-    background: var(--success-color);
-    border-radius: 50%;
+.contact h2,
+.contact p {
+    color: white;
 }
 
-.status-card strong,
-.status-card small {
-    display: block;
+.button-light {
+    background: white;
+    color: var(--navy);
+    white-space: nowrap;
 }
 
-.status-card small {
-    color: var(--muted-color);
-    margin-top: 4px;
-}
-
-/* =================================
-   BUTTON
-================================= */
-
-.primary-button {
-    background: var(--secondary-color);
-    color: #ffffff;
-    border: none;
-    padding: 13px 24px;
-    border-radius: 7px;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.primary-button:hover {
-    background: var(--primary-color);
-}
-
-.test-message {
-    margin-top: 15px;
-    font-size: 14px;
-    color: var(--muted-color);
-}
-
-/* =================================
-   FOOTER
-================================= */
+/* FOOTER */
 
 .footer {
-    background: #ffffff;
-    border-top: 1px solid #e2e8f0;
     padding: 25px 0;
-    text-align: center;
-    color: var(--muted-color);
+    border-top: 1px solid var(--border);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    color: var(--muted);
     font-size: 13px;
 }
 
-/* =================================
-   RESPONSIVE DESIGN
-================================= */
+/* RESPONSIVE */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 78px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 25px 5%;
+        flex-direction: column;
+        gap: 18px;
+        border-bottom: 1px solid var(--border);
+    }
 
-    .header .container {
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    .hero {
+        padding: 75px 0;
+    }
+
+    .service-grid,
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content,
+    .footer-content {
         flex-direction: column;
         align-items: flex-start;
     }
-
-    .main {
-        min-height: 75vh;
-        padding: 45px 0;
-    }
-
-    .hero > p {
-        font-size: 16px;
-    }
-
 }
